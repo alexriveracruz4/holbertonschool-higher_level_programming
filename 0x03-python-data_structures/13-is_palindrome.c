@@ -1,5 +1,5 @@
 #include "lists.h"
-#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * reverse_list - reverse the list
@@ -44,14 +44,23 @@ int is_palindrome(listint_t **head)
 		tmp1 = tmp1->next;
 
 	tmp1 = *head;
-	tmp2 = reverse_list(&tmp1);
 
-	for (i = 0; tmp1; i++)
+	for (i = 0; i < (nodes/2); i++)
+		tmp1 = tmp1->next;
+
+	if (nodes % 2 != 0)
+		tmp1 = tmp1->next;
+
+	tmp2 = reverse_list(&tmp1);
+	tmp1 = *head;
+
+	while (tmp2)
 	{
 		if (tmp1->n != tmp2->n)
 			return (0);
 		tmp1 = tmp1->next;
 		tmp2 = tmp2->next;
 	}
+
 	return (1);
 }
