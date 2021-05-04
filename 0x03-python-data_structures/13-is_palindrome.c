@@ -46,7 +46,7 @@ int is_palindrome(listint_t **head)
 	tmp1 = *head;
 	tmp2 = reverse_list(&tmp1);
 
-	for (i = 0; i < nodes; i++)
+	for (i = 0; tmp1; i++)
 	{
 		if (tmp1->n != tmp2->n)
 			return (0);
