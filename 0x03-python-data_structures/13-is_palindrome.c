@@ -36,9 +36,6 @@ int is_palindrome(listint_t **head)
 	listint_t *tmp1, *tmp2;
 	int nodes, i;
 
-	if (head == NULL)
-		return (0);
-
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
