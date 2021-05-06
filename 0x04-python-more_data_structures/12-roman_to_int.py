@@ -18,7 +18,7 @@ def roman_to_int(roman_string):
     for j in range(len(list1) - 1):
         if list1[j] >= list1[j + 1]:
             num += list1[j]
-            if j == len(list1) - 2:
+            if j is (len(list1) - 2):
                 num += list1[j + 1]
         else:
             num += list1[j + 1] - list1[j]
