@@ -1,0 +1,64 @@
+================================
+How to Use 5-text_indentation.py
+================================
+
+Using text_indentation(text)
+-----------------------------
+
+Import funtion from module:
+
+       >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Check string ending in ".", "?" or ":"
+
+       >>> text_indentation("Alex?")
+       Alex?
+       <BLANKLINE>
+
+Check string with spaces at the beginning of the line:
+
+       >>> text_indentation("    Yes, sir.")
+       Yes, sir.
+       <BLANKLINE>
+
+       >>> text_indentation("    ")
+
+Check string with spaces at the end of the line:
+
+       >>> text_indentation("Yes, sir.     ")
+       Yes, sir.
+       <BLANKLINE>
+
+       >>> text_indentation("   Hello.   Now choose:    ")
+       Hello.
+       <BLANKLINE>
+       Now choose:
+       <BLANKLINE>
+
+Check string without ".", "?" or ":":
+
+       >>> text_indentation("Print line")
+       Print line
+
+Check print a new line:
+
+       >>> text_indentation("Print new line:\n Printed.")
+       Print new line:
+       <BLANKLINE>
+       <BLANKLINE>
+       Printed.
+       <BLANKLINE>
+
+Check text is not string:
+
+       >>> text_indentation(None)
+       Traceback (most recent call last):
+       TypeError: text must be a string
+
+       >>> text_indentation([1, 2, 3])
+       Traceback (most recent call last):
+       TypeError: text must be a string
+
+       >>> text_indentation(123)
+       Traceback (most recent call last):
+       TypeError: text must be a string
