@@ -1,0 +1,82 @@
+=================================
+How to Use 101-lazy_matrix_mul.py
+=================================
+
+Using lazy_matrix_mul(m_a, m_b)
+-------------------------------
+
+Import function from module:
+
+       >>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+
+Check for values int and floats:
+
+       >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1.5, 2.5], [4.5, 6.5]]))
+       [[10.5, 15.5]
+        [22.5, 33.5]]
+
+Check m_a is not list:
+
+       >>> print(lazy_matrix_mul(None, [[1, 2], [3, 4]]))
+       Traceback (most recent call last):
+       TypeError: Object arrays are not currently supported
+
+Check m_b is not list:
+
+       >>> print(lazy_matrix_mul([[1, 2], [3, 4]], None))
+       Traceback (most recent call last):
+       TypeError: Object arrays are not currently supported
+
+Check m_a is empty list:
+
+       >>> print(lazy_matrix_mul([], [[1, 2], [3, 4]]))
+       Traceback (most recent call last):
+       ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+
+Check m_b is empty list:
+
+       >>> print(lazy_matrix_mul([[1, 2], [3, 4]], []))
+       Traceback (most recent call last):
+       ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+
+Check not int not float in m_a:
+
+       >>> print(lazy_matrix_mul([[1, "Alex"], [3, 4]], [[1, 2], [3, 4]]))
+       Traceback (most recent call last):
+       TypeError: invalid data type for einsum
+
+Check not int not float in m_b:
+
+       >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], ["Alex", 4]]))
+       Traceback (most recent call last):
+       TypeError: invalid data type for einsum
+
+Check m_a is not rectangle:
+
+       >>> print(lazy_matrix_mul([[1, 2], [3, 4, 5]], [[1, 2], [3, 4]]))
+       Traceback (most recent call last):
+       ValueError: setting an array element with a sequence.
+
+Check m_b is not rectangle:
+
+       >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4, 5]]))
+       Traceback (most recent call last):
+       ValueError: setting an array element with a sequence.
+
+Check forbid multiplication:
+
+       >>> print(lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4,]]))
+       Traceback (most recent call last):
+       ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+
+Check few arguments:
+
+       >>> print(lazy_matrix_mul([[1, 2], [3, 4]]))
+       Traceback (most recent call last):
+       TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+Check many aguments:
+
+       >>> lazy_matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]])
+       Traceback (most recent call last):
+       TypeError: lazy_matrix_mul() takes 2 positional arguments but 3 were given
