@@ -7,6 +7,7 @@ Define Rectangle class
 class Rectangle:
     """Represent rectangle"""
     def __init__(self, width=0, height=0):
+        """Initializae rectangle"""
         self.width = width
         self.height = height
 
@@ -29,7 +30,7 @@ class Rectangle:
         """Get height of rectangle"""
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
         """Set height of rectangle"""
         if type(value) is not int:
