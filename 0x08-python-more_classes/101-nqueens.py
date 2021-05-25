@@ -21,7 +21,7 @@ if __name__ == "__main__":
     sol = []
 
     for row in range(n):
-        sol.append([row, None])
+        sol.append([row, -1])
 
     def reset(i):
         """reset the way of solution if failure"""
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         while(row < i):
             if abs(sol[row][1] - j) == abs(row - i):
                 return False
-            row +=1
+            row += 1
         return True
 
     def recursive(i):
