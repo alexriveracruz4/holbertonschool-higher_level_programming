@@ -9,6 +9,12 @@ Import class from module:
 
         >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
+Check type:
+
+        >>> bg = BaseGeometry()
+	>>> type(bg)
+	<class '7-base_geometry.BaseGeometry'>
+
 Check area exception:
 
 	>>> bg = BaseGeometry()
@@ -58,6 +64,14 @@ Check for non-integer types:
 	Traceback (most recent call last):
 	...
 	TypeError: string must be an integer
+
+	>>> bg.integer_validator("list", [3, 4])
+	Traceback (most recent call last):
+	TypeError: list must be an integer
+
+	>>> bg.integer_validator("None", None)
+	Traceback (most recent call last):
+	TypeError: None must be an integer
 
 Check for no arguments to integer_validator:
 	>>> bg.integer_validator()
