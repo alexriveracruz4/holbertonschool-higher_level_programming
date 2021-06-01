@@ -69,6 +69,14 @@ Check for non-integer types:
 	Traceback (most recent call last):
 	TypeError: list must be an integer
 
+	>>> bg.integer_validator("dict", {3, 4})
+	Traceback (most recent call last):
+	TypeError: dict must be an integer
+
+	>>> bg.integer_validator("tuple", (1,2))
+	Traceback (most recent call last):
+	TypeError: tuple must be an integer
+
 	>>> bg.integer_validator("None", None)
 	Traceback (most recent call last):
 	TypeError: None must be an integer
