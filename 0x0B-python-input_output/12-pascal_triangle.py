@@ -9,7 +9,7 @@ def pascal_triangle(n):
     if n <= 0:
         return([])
 
-    listTriangle= [[1]]
+    listTriangle = [[1]]
     while len(listTriangle) < n:
         last = listTriangle[-1]
         add = [1]
