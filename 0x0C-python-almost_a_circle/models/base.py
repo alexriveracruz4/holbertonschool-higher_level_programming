@@ -33,3 +33,10 @@ class Base:
                 listDic.append(cls.to_dictionary(ob))
         with open(fil, "w") as f:
             f.write(cls.to_json_string(listDic))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation json_string"""
+        if json_string is None:
+            return([])
+        return(json.loads(json_string))
