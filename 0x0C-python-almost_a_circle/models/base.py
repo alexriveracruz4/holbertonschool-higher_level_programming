@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines Base Class"""
 import json
+import csv
 
 
 class Base:
@@ -64,3 +65,38 @@ class Base:
         except:
             pass
         return(li)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes in CSV"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline='') as f:
+            file = csv.writer(f)
+            if cls.__name__ is "Rectangle":
+                for obj in list_objs:
+                    file.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+            elif cls.__name__ is "Square":
+                for obj in list_objs:
+                    file.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes in CSV"""
+        filename = cls.__name__ + ".csv"
+        listOb = []
+        try:
+            with open(filename, "r") as f:
+                bdata = csv.reader(f)
+                for data in bdata:
+                    if cls.__name__ is "Rectangle":
+                        dic = {"id": int(data[0]), "width": int(data[1]),
+                               "height": int(data[2]), "x": int(data[3]),
+                               "y": int(data[4])}
+                    elif cls.__name__ is "Square":
+                        dic = {"id": int(data[0]), "size": int(data[1]),
+                               "x": int(data[2]), "y": int(data[3])}
+                    obj = cls.create(**dic)
+                    listOb.append(obj)
+        except:
+            pass
+        return(listOb)
