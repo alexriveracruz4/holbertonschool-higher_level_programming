@@ -1,9 +1,6 @@
 #!/usr/bin/node
-'use strict';
-let secMax = 0;
-const args = process.argv.slice(2);
-if (args.length > 1) {
-  args.sort();
-  secMax = args[args.length - 2];
+if (process.argv.length < 4) {
+  console.log(0);
+} else {
+  console.log(process.argv.slice(2, process.argv.length).sort().reverse()[1]);
 }
-console.log(secMax);
